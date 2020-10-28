@@ -1,29 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ItemEditFragment">
+    tools:context=".todo.item.ItemEditFragment"
+    android:background="@color/colorBackground">
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone" />
 
     <TextView
-        android:id="@+id/textview_second"
-        android:layout_width="wrap_content"
+        android:id="@+id/title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/item_edit_fragment"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="75dp"
+        android:gravity="center_horizontal"
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:text="@string/song_edit_title"
+        />
 
-    <Button
-        android:id="@+id/button_second"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        >
+
+        <TextView
+            android:id="@+id/text_view_song_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:text="@string/song_name_label"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <EditText
+            android:id="@+id/song_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:autofillHints="Name"
+            android:inputType="text"
+            android:text="" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="175dp"
+        >
+
+        <TextView
+            android:id="@+id/text_view_song_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:text="@string/song_artist_label"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <EditText
+            android:id="@+id/song_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:autofillHints="Name"
+            android:inputType="text" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="275dp"
+        >
+
+        <TextView
+            android:id="@+id/text_view_song_length"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:text="@string/song_length_label"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <EditText
+            android:id="@+id/song_length"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:autofillHints="Name"
+            android:inputType="number" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="375dp"
+        >
+
+        <TextView
+            android:id="@+id/text_view_song_release_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:text="@string/song_release_date_label"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <EditText
+            android:id="@+id/song_release_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:autofillHints="Name"
+            android:inputType="date" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_menu_save" />
+
+</FrameLayout>

@@ -1,14 +1,15 @@
-package com.example.myapplication
+package com.example.myapplication.todo.items
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
+import com.example.myapplication.todo.data.ItemRepository
+import com.example.myapplication.todo.data.Song
+import com.example.myapplication.core.TAG
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import java.util.*
 
 class ItemListViewModel : ViewModel() {
     private val mutableItems = MutableLiveData<List<Song>>().apply { value = emptyList() }
@@ -22,7 +23,7 @@ class ItemListViewModel : ViewModel() {
     fun createItem(position: Int): Unit {
         val list = mutableListOf<Song>()
         list.addAll(mutableItems.value!!)
-        list.add(Song(position.toString(), "Song $position", "Artist $position",  position))
+        list.add(Song(position.toString(), "Song $position", "Artist $position",  position, Date()))
         mutableItems.value = list
     }
 
@@ -32,7 +33,7 @@ class ItemListViewModel : ViewModel() {
             mutableLoading.value = true
             mutableException.value = null
             try {
-                mutableItems.value = ItemRepository.getAll()
+                mutableItems.value = ItemRepository.loadAll()
                 Log.d(TAG, "loadItems succeeded");
                 mutableLoading.value = false
             } catch (e: Exception) {

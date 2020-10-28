@@ -7,9 +7,10 @@
 
     <fragment
         android:id="@+id/ItemListFragment"
-        android:name="com.example.myapplication.ItemListFragment"
+        android:name="com.example.myapplication.todo.items.ItemListFragment"
         android:label="@string/item_list_fragment_label"
-        tools:layout="@layout/fragment_item_list">
+        tools:layout="@layout/fragment_item_list"
+        >
 
         <action
             android:id="@+id/action_ItemListFragment_to_ItemEditFragment"
@@ -17,9 +18,10 @@
     </fragment>
     <fragment
         android:id="@+id/ItemEditFragment"
-        android:name="com.example.myapplication.ItemEditFragment"
+        android:name="com.example.myapplication.todo.item.ItemEditFragment"
         android:label="@string/item_edit_fragment_label"
-        tools:layout="@layout/fragment_item_edit">
+        tools:layout="@layout/fragment_item_edit"
+        >
 
         <action
             android:id="@+id/action_ItemEditFragment_to_ItemListFragment"

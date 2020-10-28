@@ -9,4 +9,9 @@
 
     <string name="item_list_fragment">Item list fragment</string>
     <string name="item_edit_fragment">Item edit fragment</string>
+    <string name="song_name_label">Song name:</string>
+    <string name="song_edit_title">Song data</string>
+    <string name="song_artist_label">Artist</string>
+    <string name="song_length_label">Length (seconds)</string>
+    <string name="song_release_date_label">Release Date:</string>
 </resources>

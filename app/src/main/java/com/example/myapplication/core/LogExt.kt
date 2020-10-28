@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.core
 
 val Any.TAG: String
     get() {

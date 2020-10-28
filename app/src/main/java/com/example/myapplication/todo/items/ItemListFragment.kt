@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.todo.items
 
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.navigation.fragment.findNavController
+import com.example.myapplication.R
+import com.example.myapplication.core.TAG
 import kotlinx.android.synthetic.main.fragment_item_list.*
 
 class ItemListFragment : Fragment() {
@@ -39,9 +41,12 @@ class ItemListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        Log.i(TAG, "onActivityCreated")
-        //item_list.adapter = ItemListAdapter(this, ItemsViewModel.items)
+        Log.v(TAG, "onActivityCreated")
         setupItemList()
+        fab.setOnClickListener {
+            Log.v(TAG, "add new item")
+            findNavController().navigate(R.id.ItemEditFragment)
+        }
     }
 
     private fun setupItemList() {
